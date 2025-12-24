@@ -1,7 +1,7 @@
 variable "resource_group_name" { type = string }
 variable "location" {
     type = string
-    default = "francecentral"
+    default = "westeurope"
 }
 variable "vnet_name" { type = string }
 variable "vnet_cidr" {

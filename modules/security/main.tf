@@ -38,7 +38,7 @@ resource "azurerm_network_security_group" "db" {
       access                     = "Allow"
       protocol                   = "Tcp"
       source_port_range          = "*"
-      source_address_prefix      = var.web_subnet_id
+      source_address_prefix      = var.web_subnet_cidr
       destination_port_range     = security_rule.value.port
       destination_address_prefix = "*"
     }

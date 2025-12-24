@@ -48,6 +48,7 @@ module "security" {
   web_subnet_id       = module.network.subnet_ids["web"]
   db_subnet_id        = module.network.subnet_ids["db"]
   environment         = var.environment
+  web_subnet_cidr     = "10.0.1.0/24"
 }
 
 module "compute" {
