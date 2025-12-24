@@ -89,7 +89,6 @@ resource "azurerm_lb_backend_address_pool" "web" {
 }
 
 resource "azurerm_lb_probe" "http" {
-  resource_group_name = azurerm_resource_group.main.name
   loadbalancer_id     = azurerm_lb.main.id
   name                = "http-probe"
   port                = 80

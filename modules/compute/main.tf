@@ -19,7 +19,7 @@ resource "azurerm_linux_virtual_machine" "web" {
   }
   admin_ssh_key {
     username   = var.admin_user
-    public_key = file("~/.ssh/id_rsa.pub")
+    public_key = var.ssh_public_key
   }
   custom_data = base64encode(templatefile("${path.module}/../../scripts/init-vm.sh", {}))
 }
@@ -57,7 +57,7 @@ resource "azurerm_linux_virtual_machine" "db" {
   }
   admin_ssh_key {
     username   = var.admin_user
-    public_key = file("~/.ssh/id_rsa.pub")
+    public_key = var.ssh_public_key
   }
 }
 
