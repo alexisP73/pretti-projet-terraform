@@ -7,7 +7,10 @@ resource "azurerm_linux_virtual_machine" "web" {
   size                = var.vm_size_web
   admin_username      = var.admin_user
   network_interface_ids = [azurerm_network_interface.web[count.index].id]
-  os_disk { caching = "ReadWrite"; storage_account_type = "Standard_LRS" }
+  os_disk {
+    caching = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
   source_image_reference {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-jammy"
@@ -42,7 +45,10 @@ resource "azurerm_linux_virtual_machine" "db" {
   size                = var.vm_size_db
   admin_username      = var.admin_user
   network_interface_ids = [azurerm_network_interface.db.id]
-  os_disk { caching = "ReadWrite"; storage_account_type = "Standard_LRS" }
+  os_disk {
+    caching = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
   source_image_reference {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-jammy"
