@@ -59,8 +59,8 @@ module "compute" {
   environment         = var.environment
   admin_user          = var.admin_user
   ssh_public_key      = var.ssh_public_key
-  vm_size_web         = var.environment == "prod" ? "Standard_B2s" : "Standard_B1s"
-  vm_size_db          = var.environment == "prod" ? "Standard_B2s" : "Standard_B1s"
+  vm_size_web         = var.environment = "Standard_B2s"
+  vm_size_db          = var.environment = "Standard_B2s"
 }
 
 # Load Balancer
