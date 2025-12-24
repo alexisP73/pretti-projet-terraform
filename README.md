@@ -1,19 +1,7 @@
-# Infrastructure Azure multi-environnement avec Terraform
+# Infrastructure Azure multi-environnement – CloudTech Solutions
 
-Projet DevOps CloudTech Solutions  
-Déploiement automatisé d'environnements **dev**, **staging**, **prod** sur Microsoft Azure.
-
-## Composants
-- Virtual Network (VNet) avec subnets web/db
-- 3 VMs Linux (2 web + 1 db)
-- Load Balancer + Public IP
-- NSG + Storage Account pour diagnostics
-
-## Outils
-- Terraform (IaC)
-- Azure Cloud
-- GitHub + Terraform Cloud (CI/CD)
-- Vault (gestion des secrets)
-- Sentinel (gouvernance)
-
-Voir [docs/architecture.md] pour le diagramme.
+Déploiement automatisé avec Terraform :
+- **Environnements** : dev, staging, prod
+- **Ressources** : VNet, VMs (web/db), NSG, Load Balancer, Storage
+- **Sécurité** : secrets via Terraform Cloud, politiques Sentinel
+- **CI/CD** : via Terraform Cloud + GitHub
