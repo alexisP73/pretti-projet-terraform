@@ -1,14 +1,21 @@
 terraform {
   required_providers {
-    azurerm = { source = "hashicorp/azurerm"; version = "~> 4.0" }
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 4.0"
+    }
   }
   backend "remote" {
-    organization = "cloudtech-solutions"
-    workspaces { name = "pretti-projet-terraform-dev" }
+    organization = "cloudtech-solutions"  # ← À modifier !
+    workspaces {
+      name = "pretti-projet-terraform-dev"
+    }
   }
 }
 
-provider "azurerm" { features {} }
+provider "azurerm" {
+  features {}
+}
 
 resource "azurerm_resource_group" "main" {
   name     = "${var.prefix}-${var.environment}-rg"
@@ -50,6 +57,7 @@ module "compute" {
   subnet_ids          = module.network.subnet_ids
   environment         = var.environment
   admin_user          = var.admin_user
+  ssh_public_key      = var.ssh_public_key
   vm_size_web         = var.environment == "prod" ? "Standard_B2s" : "Standard_B1s"
   vm_size_db          = var.environment == "prod" ? "Standard_B2s" : "Standard_B1s"
 }
@@ -101,7 +109,6 @@ resource "azurerm_lb_rule" "http" {
   probe_id                       = azurerm_lb_probe.http.id
 }
 
-# Associer VMs au LB
 resource "azurerm_network_interface_backend_address_pool_association" "web" {
   count                   = 2
   network_interface_id    = module.compute.web_vm_ids[count.index]
