@@ -14,3 +14,7 @@ variable "vm_size_db" {
     type = string
     default = "Standard_B2s"
 }
+variable "ssh_public_key" {
+  description = "Clé SSH publique pour les VMs"
+  type        = string
+}
